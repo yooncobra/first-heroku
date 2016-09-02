@@ -12,15 +12,15 @@ app.get("/", function(req, res) {
   res.sendFile(__dirname + "/views/index.html");
 });
 
-io.on("connection", function(socket) { // 소켓 키다
+io.on("connection", function(socket){ // 소켓 키다
   /*
   console.log("a user connected");
   socket.on("disconnect", function() {
     console.log("a user disconnected");
   }) // disconnection code
   */
-  socket.on("chat message", function(msg) {
-    io.emit("chst message: ", msg);
+  socket.on("chat message", function(msg){
+    io.emit("chat message", msg);
   });
 });
 
